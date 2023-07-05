@@ -1,1 +1,24 @@
+<mat-toolbar color="primary">
+  <nav class="nav">
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </nav>
+  <span>G-Group Playground</span>
+</mat-toolbar>
 <router-outlet></router-outlet>
+
+<mat-menu #menu="matMenu">
+  <button routerLink="/ngrx/counter" [mat-menu-trigger-for]="ngrx" mat-menu-item>
+    NgRX
+  </button>
+</mat-menu>
+
+<mat-menu #ngrx="matMenu">
+  <button routerLink="/ngrx/counter" mat-menu-item>
+    Counter
+  </button>
+  <button routerLink="/ngrx/book-list" mat-menu-item>
+    Book-list
+  </button>
+</mat-menu>

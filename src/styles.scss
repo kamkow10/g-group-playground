@@ -17,16 +17,16 @@ body, html {
   &__container {
     width: 100%;
     max-width: 900px;
-    margin: 3rem;
+    margin: 2rem;
     box-shadow: 0 0 1rem 0 #888888;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 0.5rem;
   }
 }
 
 .book-item {
   padding: 1rem;
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
 
   &__action-button {
     display: block;

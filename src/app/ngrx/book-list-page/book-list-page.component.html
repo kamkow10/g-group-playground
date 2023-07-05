@@ -1,13 +1,17 @@
 <div class="page">
   <div class="page__container">
     <h1>NgRx - book-list</h1>
-
-    <h2>Books</h2>
-    <app-book-list [books]="(books$ | async)!" (add)="onAdd($event)">
-    </app-book-list>
-
-    <h2>My collection</h2>
-    <app-book-collection [books]="(bookCollection$ | async)!" (remove)="onRemove($event)">
-    </app-book-collection>
+    <div class="book-list-container">
+      <div>
+        <h2>Books</h2>
+        <app-book-list [books]="(books$ | async)!" (add)="onAdd($event)">
+        </app-book-list>
+      </div>
+      <div>
+        <h2>My collection</h2>
+        <app-book-collection [books]="(bookCollection$ | async)!" (remove)="onRemove($event)">
+        </app-book-collection>
+      </div>
+    </div>
   </div>
 </div>

@@ -15,6 +15,9 @@ import {booksReducer} from "./ngrx/book-list-page/state/books.reducer";
 import {collectionReducer} from "./ngrx/book-list-page/state/collection.reducer";
 import { BookCollectionComponent } from './ngrx/book-list-page/book-collection/book-collection.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import {HttpClientModule} from "@angular/common/http";
     }, {}),
     BrowserAnimationsModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
