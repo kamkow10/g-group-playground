@@ -7,23 +7,35 @@ import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CounterPageComponent } from './ngrx/counter-page/counter-page.component';
 import { CounterComponent } from './ngrx/counter-page/counter/counter.component';
-import {counterReducer} from "./ngrx/counter-page/counter/state/counter.reducer";
+import {counterReducer} from "./ngrx/counter-page/state/counter.reducer";
 import {MatButtonModule} from "@angular/material/button";
+import { BookListPageComponent } from './ngrx/book-list-page/book-list-page.component';
+import { BookListComponent } from './ngrx/book-list-page/book-list/book-list.component';
+import {booksReducer} from "./ngrx/book-list-page/state/books.reducer";
+import {collectionReducer} from "./ngrx/book-list-page/state/collection.reducer";
+import { BookCollectionComponent } from './ngrx/book-list-page/book-collection/book-collection.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     CounterPageComponent,
-    CounterComponent
+    CounterComponent,
+    BookListPageComponent,
+    BookListComponent,
+    BookCollectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({
-      count: counterReducer
+      count: counterReducer,
+      books: booksReducer,
+      collection: collectionReducer
     }, {}),
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

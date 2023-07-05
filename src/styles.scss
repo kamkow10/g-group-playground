@@ -23,3 +23,13 @@ body, html {
     border-radius: 0.5rem;
   }
 }
+
+.book-item {
+  padding: 1rem;
+  border: 1px solid grey;
+
+  &__action-button {
+    display: block;
+    margin-bottom: 2rem;
+  }
+}
