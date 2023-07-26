@@ -1,0 +1,18 @@
+<div class="page">
+  <div class="page__container">
+    <h1>Login Form</h1>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" required>
+      </mat-form-field>
+      <button class="login-form__submit" mat-raised-button color="primary" [disabled]="loginForm.invalid" type="submit">
+        Login
+      </button>
+    </form>
+  </div>
+</div>

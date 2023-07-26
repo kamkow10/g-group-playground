@@ -9,6 +9,9 @@
 <router-outlet></router-outlet>
 
 <mat-menu #menu="matMenu">
+  <button routerLink="/login" mat-menu-item>
+    Login
+  </button>
   <button routerLink="/ngrx/counter" [mat-menu-trigger-for]="ngrx" mat-menu-item>
     NgRX
   </button>

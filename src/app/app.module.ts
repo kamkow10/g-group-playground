@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,15 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
+import { EffectsModule } from '@ngrx/effects';
+import { LoginPageComponent } from './ngrx-effects/components/login-page/login-page.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import {loginReducer} from "./ngrx-effects/state/login.reducers";
+import {LoginEffects} from "./ngrx-effects/state/login.effects";
+import { TasksPageComponent } from './ngrx-effects/components/tasks-page/tasks-page.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -26,7 +35,9 @@ import {MatIconModule} from "@angular/material/icon";
     CounterComponent,
     BookListPageComponent,
     BookListComponent,
-    BookCollectionComponent
+    BookCollectionComponent,
+    LoginPageComponent,
+    TasksPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,14 +45,20 @@ import {MatIconModule} from "@angular/material/icon";
     StoreModule.forRoot({
       count: counterReducer,
       books: booksReducer,
-      collection: collectionReducer
+      collection: collectionReducer,
+      login: loginReducer
     }, {}),
+    EffectsModule.forRoot([LoginEffects]),
     BrowserAnimationsModule,
     MatButtonModule,
     HttpClientModule,
     MatMenuModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
   bootstrap: [AppComponent]
