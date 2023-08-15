@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {LoginActions} from "../../state/login.actions";
 import {selectLoginState} from "../../state/login.selectors";
-import {map, tap} from "rxjs";
+import {map, Subscription} from "rxjs";
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,8 +11,9 @@ import {Router} from "@angular/router";
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnDestroy {
   readonly loginForm: FormGroup;
+  private loggedInSubscription: Subscription;
 
   constructor(private fb: FormBuilder,
               private store: Store,
@@ -21,13 +22,17 @@ export class LoginPageComponent {
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-    this.store.select(selectLoginState).pipe(
+    this.loggedInSubscription = this.store.select(selectLoginState).pipe(
       map(loginState => loginState.loggedIn)
     ).subscribe(loggedIn => {
       if (loggedIn) {
         this.router.navigateByUrl('/tasks');
       }
     })
+  }
+
+  ngOnDestroy(): void {
+    this.loggedInSubscription.unsubscribe();
   }
 
   onSubmit(): void {
