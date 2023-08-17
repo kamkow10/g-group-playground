@@ -6,6 +6,8 @@ export const LoginActions = createActionGroup({
   events: {
     'Login': props<{username: string, password: string}>(),
     'Login Success': props<SessionData>(),
-    'Login Failed': emptyProps()
+    'Login Failed Incorrect Credentials': emptyProps(),
+    'Login Failed Unknown Error': emptyProps(),
+    'Reset Login Error Message': emptyProps()
   }
 });

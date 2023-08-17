@@ -3,8 +3,10 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {LoginActions} from "../../state/login.actions";
 import {selectLoginState} from "../../state/login.selectors";
-import {map, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
+import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
+import {LoginErrorMessage} from "../../enum/login-error-message";
 
 @Component({
   selector: 'app-login-page',
@@ -14,19 +16,27 @@ import {Router} from "@angular/router";
 export class LoginPageComponent implements OnDestroy {
   readonly loginForm: FormGroup;
   private loggedInSubscription: Subscription;
+  private errorMessageConfig: MatSnackBarConfig = {
+    verticalPosition: 'top',
+    panelClass: ['error-message']
+  }
 
   constructor(private fb: FormBuilder,
               private store: Store,
-              private router: Router) {
+              private router: Router,
+              private snackBar: MatSnackBar) {
     this.loginForm = fb.nonNullable.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-    this.loggedInSubscription = this.store.select(selectLoginState).pipe(
-      map(loginState => loginState.loggedIn)
-    ).subscribe(loggedIn => {
-      if (loggedIn) {
+    this.loggedInSubscription = this.store.select(selectLoginState).subscribe(loginState => {
+      if (loginState.loggedIn) {
         this.router.navigateByUrl('/tasks');
+      }
+      if (loginState.errorMessage !== null) {
+        this.showLoginErrorMessage(loginState.errorMessage);
+      } else {
+        this.snackBar.dismiss();
       }
     })
   }
@@ -39,5 +49,16 @@ export class LoginPageComponent implements OnDestroy {
     const username = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;
     this.store.dispatch(LoginActions.login({username, password}));
+  }
+
+  private showLoginErrorMessage(errorMessage: LoginErrorMessage): void {
+    switch (errorMessage) {
+      case LoginErrorMessage.INCORRECT_CREDENTIALS:
+        this.snackBar.open('Incorrect credentials', '', this.errorMessageConfig);
+        break;
+      case LoginErrorMessage.UNKNOWN_ERROR:
+        this.snackBar.open('Unknown error', '', this.errorMessageConfig);
+        break;
+    }
   }
 }
