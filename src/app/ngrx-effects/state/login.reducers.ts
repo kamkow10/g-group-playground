@@ -34,4 +34,7 @@ export const loginReducer = createReducer(
   on(LoginActions.resetLoginErrorMessage, (state) => {
     return {...state, errorMessage: null};
   }),
+  on(LoginActions.logout, (state) => {
+    return {...state, loggedIn: false};
+  }),
 )

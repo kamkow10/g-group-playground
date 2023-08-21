@@ -14,7 +14,7 @@ export class RestService {
     return this.http.post<SessionData>('http://localhost:3000/login', {username, password})
   }
 
-  public getTasks(token: string): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/getTasks', {token});
+  public getTasks(): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/getTasks', {});
   }
 }

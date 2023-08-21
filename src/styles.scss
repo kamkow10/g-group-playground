@@ -33,3 +33,11 @@ body, html {
     margin-bottom: 2rem;
   }
 }
+
+.mat-mdc-snack-bar-container {
+  &.warning {
+    --mdc-snackbar-container-color: #ecc38d;
+    --mat-mdc-snack-bar-button-color: black;
+    --mdc-snackbar-supporting-text-color: black;
+  }
+}

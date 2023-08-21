@@ -1,8 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RestService} from "../../services/rest.service";
-import {map, mergeMap, Observable, take} from "rxjs";
-import {selectLoginState} from "../../state/login.selectors";
-import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-tasks-page',
@@ -12,12 +9,8 @@ import {Store} from "@ngrx/store";
 export class TasksPageComponent {
   tasks!: {todo: string[], done: string[]};
 
-  constructor(private restService: RestService,
-              private store: Store) {
-    this.store.select(selectLoginState).pipe(
-      take(1),
-      mergeMap(state => this.restService.getTasks(state.token))
-    ).subscribe(tasks => {
+  constructor(private restService: RestService) {
+    this.restService.getTasks().subscribe(tasks => {
       this.tasks = tasks;
     });
   }

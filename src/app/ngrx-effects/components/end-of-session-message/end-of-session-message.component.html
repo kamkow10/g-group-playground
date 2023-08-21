@@ -1,0 +1,6 @@
+<span class="message-text" matSnackBarLabel>
+  Your session will expire in <span class="message-text--bold">{{secondsToLogout}}s</span>.
+</span>
+<span matSnackBarActions>
+  <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">OK</button>
+</span>

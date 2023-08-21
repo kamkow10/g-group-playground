@@ -14,7 +14,7 @@ import {BookListComponent} from './ngrx/book-list-page/book-list/book-list.compo
 import {booksReducer} from "./ngrx/book-list-page/state/books.reducer";
 import {collectionReducer} from "./ngrx/book-list-page/state/collection.reducer";
 import {BookCollectionComponent} from './ngrx/book-list-page/book-collection/book-collection.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
@@ -28,6 +28,11 @@ import {LoginEffects} from "./ngrx-effects/state/login.effects";
 import {TasksPageComponent} from './ngrx-effects/components/tasks-page/tasks-page.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {AuthInterceptor} from "./ngrx-effects/interceptors/auth.interceptor";
+import {ErrorInterceptor} from "./ngrx-effects/interceptors/error.interceptor";
+import {
+  EndOfSessionMessageComponent
+} from './ngrx-effects/components/end-of-session-message/end-of-session-message.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     BookListComponent,
     BookCollectionComponent,
     LoginPageComponent,
-    TasksPageComponent
+    TasksPageComponent,
+    EndOfSessionMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,18 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

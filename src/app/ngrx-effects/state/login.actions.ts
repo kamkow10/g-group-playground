@@ -8,6 +8,7 @@ export const LoginActions = createActionGroup({
     'Login Success': props<SessionData>(),
     'Login Failed Incorrect Credentials': emptyProps(),
     'Login Failed Unknown Error': emptyProps(),
-    'Reset Login Error Message': emptyProps()
+    'Reset Login Error Message': emptyProps(),
+    'Logout': emptyProps()
   }
 });
