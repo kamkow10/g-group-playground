@@ -17,10 +17,11 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (req.method === 'POST' && this.isLoggedIn && this.token) {
+    if (this.isLoggedIn && this.token) {
       req = req.clone({
-        body: { ...req.body, token: this.token }
-      })
+        headers: req.headers.set("Authorization",
+          "Bearer " + this.token)
+      });
     }
     return next.handle(req);
   }
