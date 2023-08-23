@@ -18,4 +18,8 @@ export class RestService {
   public getTasks(): Observable<Tasks> {
     return this.http.get<Tasks>('http://localhost:3000/tasks');
   }
+
+  public setTasks(tasks: Tasks): Observable<Tasks> {
+    return this.http.post<Tasks>('http://localhost:3000/tasks', {tasks});
+  }
 }

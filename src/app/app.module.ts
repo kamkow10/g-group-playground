@@ -25,7 +25,7 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {loginReducer} from "./ngrx-effects/state/login.reducers";
 import {LoginEffects} from "./ngrx-effects/state/login.effects";
-import {TasksPageComponent} from './ngrx-effects/components/tasks-page/tasks-page.component';
+import {TasksPageComponent} from './material/components/tasks-page/tasks-page.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {AuthInterceptor} from "./ngrx-effects/interceptors/auth.interceptor";
@@ -33,6 +33,7 @@ import {ErrorInterceptor} from "./ngrx-effects/interceptors/error.interceptor";
 import {
   EndOfSessionMessageComponent
 } from './ngrx-effects/components/end-of-session-message/end-of-session-message.component';
+import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -65,8 +66,10 @@ import {
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    MatSnackBarModule
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
+    MatSnackBarModule,
+    CdkDropList,
+    CdkDrag
   ],
   providers: [
     {
