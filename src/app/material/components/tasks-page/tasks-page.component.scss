@@ -6,19 +6,28 @@
 
 .task-list {
   width: 100%;
-  min-height: 60px;
+  min-height: 70px;
   border: 2px solid grey;
   border-radius: 4px;
 
   &__elem {
-    padding: 20px 10px;
+    padding: 1rem;
     border-bottom: 2px solid grey;
     cursor: move;
     background: white;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
 
     &:last-of-type {
       border-bottom: none;
+    }
+
+    &--done {
+      color: grey;
+      text-decoration: line-through;
     }
   }
 

@@ -36,6 +36,7 @@ import {
 import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 import {AccordionPageComponent} from './material/components/accordion-page/accordion-page.component';
 import {CdkAccordionModule} from "@angular/cdk/accordion";
+import {ClipboardModule} from "@angular/cdk/clipboard";
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import {CdkAccordionModule} from "@angular/cdk/accordion";
     MatSnackBarModule,
     CdkDropList,
     CdkDrag,
-    CdkAccordionModule
+    CdkAccordionModule,
+    ClipboardModule
   ],
   providers: [
     {

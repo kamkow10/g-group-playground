@@ -1,6 +1,10 @@
 <div class="page">
   <div class="page__container">
     <h1>Tasks</h1>
+
+    <h2>Paste copied text</h2>
+    <textarea cols="30" rows="3"></textarea>
+
     <div class="task-column-view">
 
       <div>
@@ -12,7 +16,10 @@
           [cdkDropListConnectedTo]="[doneList]"
           class="task-list"
           (cdkDropListDropped)="drop($event)">
-          <div class="task-list__elem" *ngFor="let item of tasks.todo" cdkDrag>{{item}}</div>
+          <div class="task-list__elem" *ngFor="let item of tasks.todo" cdkDrag>
+            <span>{{item}}</span>
+            <button mat-button [cdkCopyToClipboard]="item" type="button">Copy</button>
+          </div>
         </div>
       </div>
 
@@ -25,7 +32,9 @@
           [cdkDropListConnectedTo]="[todoList]"
           class="task-list"
           (cdkDropListDropped)="drop($event)">
-          <div class="task-list__elem" *ngFor="let item of tasks.done" cdkDrag>{{item}}</div>
+          <div class="task-list__elem task-list__elem--done" *ngFor="let item of tasks.done" cdkDrag>
+            <span>{{item}}</span>
+          </div>
         </div>
       </div>
 
