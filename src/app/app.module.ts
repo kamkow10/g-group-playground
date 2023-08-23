@@ -34,6 +34,8 @@ import {
   EndOfSessionMessageComponent
 } from './ngrx-effects/components/end-of-session-message/end-of-session-message.component';
 import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
+import {AccordionPageComponent} from './material/components/accordion-page/accordion-page.component';
+import {CdkAccordionModule} from "@angular/cdk/accordion";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
     BookCollectionComponent,
     LoginPageComponent,
     TasksPageComponent,
-    EndOfSessionMessageComponent
+    EndOfSessionMessageComponent,
+    AccordionPageComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     MatSnackBarModule,
     CdkDropList,
-    CdkDrag
+    CdkDrag,
+    CdkAccordionModule
   ],
   providers: [
     {
