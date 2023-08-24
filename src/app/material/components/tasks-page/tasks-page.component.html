@@ -18,7 +18,7 @@
           (cdkDropListDropped)="drop($event)">
           <div class="task-list__elem" *ngFor="let item of tasks.todo" cdkDrag>
             <span>{{item}}</span>
-            <button mat-button [cdkCopyToClipboard]="item" type="button">Copy</button>
+            <button mat-button [cdkCopyToClipboard]="item" (click)="onCopy()" type="button">Copy</button>
           </div>
         </div>
       </div>

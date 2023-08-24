@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {RestService} from "../../../core/services/rest.service";
 import {Tasks} from "../../../core/interfaces/tasks";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-tasks-page',
@@ -11,7 +12,8 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag
 export class TasksPageComponent {
   tasks!: Tasks;
 
-  constructor(private restService: RestService) {
+  constructor(private restService: RestService,
+              private snackBar: MatSnackBar) {
     this.restService.getTasks().subscribe(tasks => {
       this.tasks = tasks;
     });
@@ -29,5 +31,9 @@ export class TasksPageComponent {
       );
     }
     this.restService.setTasks(this.tasks).subscribe();
+  }
+
+  onCopy(): void {
+    this.snackBar.open('Copied to clipboard!', 'OK', {duration: 5000});
   }
 }
