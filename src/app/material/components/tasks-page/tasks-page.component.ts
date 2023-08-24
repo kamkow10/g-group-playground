@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {RestService} from "../../../ngrx-effects/services/rest.service";
-import {Tasks} from "../../../ngrx-effects/interfaces/tasks";
+import {RestService} from "../../../core/services/rest.service";
+import {Tasks} from "../../../core/interfaces/tasks";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 
 @Component({

@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {RestService} from "../services/rest.service";
+import {RestService} from "../../core/services/rest.service";
 import {catchError, debounceTime, exhaustMap, map, of, switchMap, tap, timer} from "rxjs";
 import {LoginActions} from "./login.actions";
 import {Router} from "@angular/router";

@@ -9,17 +9,22 @@ import {Tasks} from "../interfaces/tasks";
 })
 export class RestService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  public login(username: string, password: string): Observable<SessionData> {
+  login(username: string, password: string): Observable<SessionData> {
     return this.http.post<SessionData>('http://localhost:3000/login', {username, password})
   }
 
-  public getTasks(): Observable<Tasks> {
+  getTasks(): Observable<Tasks> {
     return this.http.get<Tasks>('http://localhost:3000/tasks');
   }
 
-  public setTasks(tasks: Tasks): Observable<Tasks> {
+  setTasks(tasks: Tasks): Observable<Tasks> {
     return this.http.post<Tasks>('http://localhost:3000/tasks', {tasks});
+  }
+
+  getLargeList(count: number): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:3000/largeList?count=${count}`);
   }
 }

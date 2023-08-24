@@ -5,6 +5,7 @@ import {BookListPageComponent} from "./ngrx/book-list-page/book-list-page.compon
 import {LoginPageComponent} from "./ngrx-effects/components/login-page/login-page.component";
 import {TasksPageComponent} from "./material/components/tasks-page/tasks-page.component";
 import {AccordionPageComponent} from "./material/components/accordion-page/accordion-page.component";
+import {VirtualScrollPageComponent} from "./material/components/virtual-scroll-page/virtual-scroll-page.component";
 
 const routes: Routes = [
   {path: 'ngrx/counter', component: CounterPageComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'tasks', component: TasksPageComponent},
   {path: 'accordion', component: AccordionPageComponent},
+  {path: 'virtual-scroll', component: VirtualScrollPageComponent},
   {path: '**', redirectTo: 'ngrx/counter'},
 ];
 

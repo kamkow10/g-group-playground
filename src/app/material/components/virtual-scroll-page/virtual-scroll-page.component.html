@@ -1,0 +1,36 @@
+<div class="page">
+  <div class="page__container">
+    <h1>Virtual Scroll</h1>
+
+    <mat-form-field class="count-field">
+      <mat-label>Number of records to render</mat-label>
+      <input matInput [(ngModel)]="count">
+    </mat-form-field>
+
+    <div class="list-comparison">
+
+      <div>
+        <button mat-raised-button type="button" (click)="renderWithoutVirtualScroll()">
+          Redner without virtual scroll
+        </button>
+        <div class="item-list" *ngIf="showWithoutVirtualScroll">
+          <div *ngFor="let elem of elems" class="item-list__elem">
+            {{elem}}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button mat-raised-button type="button" (click)="renderWithVirtualScroll()">
+          Redner with virtual scroll
+        </button>
+        <cdk-virtual-scroll-viewport *ngIf="showWithVirtualScroll" class="item-list" itemSize="50">
+          <div *cdkVirtualFor="let elem of elems" class="item-list__elem">
+            {{elem}}
+          </div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+
+    </div>
+  </div>
+</div>

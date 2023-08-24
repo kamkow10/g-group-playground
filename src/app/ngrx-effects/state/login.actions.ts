@@ -1,5 +1,5 @@
 import {createActionGroup, emptyProps, props} from "@ngrx/store";
-import {SessionData} from "../interfaces/session-data";
+import {SessionData} from "../../core/interfaces/session-data";
 
 export const LoginActions = createActionGroup({
   source: 'Login',

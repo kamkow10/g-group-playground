@@ -22,7 +22,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {LoginPageComponent} from './ngrx-effects/components/login-page/login-page.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {loginReducer} from "./ngrx-effects/state/login.reducers";
 import {LoginEffects} from "./ngrx-effects/state/login.effects";
 import {TasksPageComponent} from './material/components/tasks-page/tasks-page.component';
@@ -37,6 +37,8 @@ import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 import {AccordionPageComponent} from './material/components/accordion-page/accordion-page.component';
 import {CdkAccordionModule} from "@angular/cdk/accordion";
 import {ClipboardModule} from "@angular/cdk/clipboard";
+import {VirtualScrollPageComponent} from './material/components/virtual-scroll-page/virtual-scroll-page.component';
+import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import {ClipboardModule} from "@angular/cdk/clipboard";
     LoginPageComponent,
     TasksPageComponent,
     EndOfSessionMessageComponent,
-    AccordionPageComponent
+    AccordionPageComponent,
+    VirtualScrollPageComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,11 @@ import {ClipboardModule} from "@angular/cdk/clipboard";
     CdkDropList,
     CdkDrag,
     CdkAccordionModule,
-    ClipboardModule
+    ClipboardModule,
+    CdkFixedSizeVirtualScroll,
+    CdkVirtualForOf,
+    CdkVirtualScrollViewport,
+    FormsModule
   ],
   providers: [
     {
