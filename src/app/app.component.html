@@ -9,13 +9,10 @@
 <router-outlet></router-outlet>
 
 <mat-menu #menu="matMenu">
-  <button *ngIf="!(loggedIn$ | async)" routerLink="/login" mat-menu-item>
-    Login
-  </button>
   <button [mat-menu-trigger-for]="ngrx" mat-menu-item>
     NgRX
   </button>
-  <button *ngIf="loggedIn$ | async" [mat-menu-trigger-for]="material" mat-menu-item>
+  <button [mat-menu-trigger-for]="material" mat-menu-item>
     Material
   </button>
 </mat-menu>
@@ -30,9 +27,14 @@
 </mat-menu>
 
 <mat-menu #material="matMenu">
-  <button routerLink="/tasks" mat-menu-item>
-    Tasks
+  <button *ngIf="!(loggedIn$ | async) else tasks" routerLink="/login" mat-menu-item>
+    Tasks - Login to see what's in
   </button>
+  <ng-template #tasks>
+    <button routerLink="/tasks" mat-menu-item>
+      Tasks
+    </button>
+  </ng-template>
   <button routerLink="/accordion" mat-menu-item>
     Accordion
   </button>
