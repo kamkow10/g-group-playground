@@ -1,0 +1,40 @@
+<div class="page">
+  <div class="page__container">
+    <h1>trackBy</h1>
+
+    <mat-form-field class="count-field">
+      <mat-label>Number of records to present</mat-label>
+      <input matInput [(ngModel)]="count">
+    </mat-form-field>
+
+    <div class="list-comparison">
+
+      <div>
+        <h2>Default</h2>
+        <button class="refresh-button" [disabled]="defaultButtonDisabled" mat-raised-button type="button"
+                (click)="refreshDefault()">
+          Refresh
+        </button>
+        <div class="item-list">
+          <div *ngFor="let elem of elemsDefault" class="item-list__elem">
+            id: {{elem.id}}, value: {{elem.value}}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>trackBy</h2>
+        <button class="refresh-button" [disabled]="trackByButtonDisabled" mat-raised-button type="button"
+                (click)="refreshTrackBy()">
+          Refresh
+        </button>
+        <div class="item-list">
+          <div *ngFor="let elem of elemsTrackBy; trackBy: trackBy" class="item-list__elem">
+            id: {{elem.id}}, value: {{elem.value}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -15,6 +15,9 @@
   <button [mat-menu-trigger-for]="material" mat-menu-item>
     Material
   </button>
+  <button [mat-menu-trigger-for]="angular" mat-menu-item>
+    Angular
+  </button>
 </mat-menu>
 
 <mat-menu #ngrx="matMenu">
@@ -40,5 +43,11 @@
   </button>
   <button routerLink="/virtual-scroll" mat-menu-item>
     VirtualScroll
+  </button>
+</mat-menu>
+
+<mat-menu #angular="matMenu">
+  <button routerLink="/track-by" mat-menu-item>
+    trackBy
   </button>
 </mat-menu>

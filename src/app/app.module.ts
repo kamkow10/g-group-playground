@@ -39,6 +39,7 @@ import {CdkAccordionModule} from "@angular/cdk/accordion";
 import {ClipboardModule} from "@angular/cdk/clipboard";
 import {VirtualScrollPageComponent} from './material/components/virtual-scroll-page/virtual-scroll-page.component';
 import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
+import {TrackByPageComponent} from './angular/components/track-by-page/track-by-page.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} fr
     TasksPageComponent,
     EndOfSessionMessageComponent,
     AccordionPageComponent,
-    VirtualScrollPageComponent
+    VirtualScrollPageComponent,
+    TrackByPageComponent
   ],
   imports: [
     BrowserModule,
