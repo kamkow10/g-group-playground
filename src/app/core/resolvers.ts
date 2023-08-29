@@ -6,6 +6,6 @@ export const countriesResolver: ResolveFn<string[]> = () => {
   return inject(RestService).getCountries();
 };
 
-export const namesResovler: ResolveFn<string[]> = () => {
+export const namesResolver: ResolveFn<string[]> = () => {
   return inject(RestService).getNames();
 };

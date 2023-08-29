@@ -8,7 +8,7 @@ import {AccordionPageComponent} from "./material/components/accordion-page/accor
 import {VirtualScrollPageComponent} from "./material/components/virtual-scroll-page/virtual-scroll-page.component";
 import {TrackByPageComponent} from "./angular/components/track-by-page/track-by-page.component";
 import {ResolverPageComponent} from "./angular/components/resolver-page/resolver-page.component";
-import {countriesResolver, namesResovler} from "./core/resolvers";
+import {countriesResolver, namesResolver} from "./core/resolvers";
 
 const routes: Routes = [
   {
@@ -44,7 +44,7 @@ const routes: Routes = [
     component: ResolverPageComponent,
     resolve: {
       countries: countriesResolver,
-      names: namesResovler
+      names: namesResolver
     }
   },
   {
