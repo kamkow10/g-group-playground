@@ -40,6 +40,7 @@ import {ClipboardModule} from "@angular/cdk/clipboard";
 import {VirtualScrollPageComponent} from './material/components/virtual-scroll-page/virtual-scroll-page.component';
 import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {TrackByPageComponent} from './angular/components/track-by-page/track-by-page.component';
+import {ResolverPageComponent} from './angular/components/resolver-page/resolver-page.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {TrackByPageComponent} from './angular/components/track-by-page/track-by-
     EndOfSessionMessageComponent,
     AccordionPageComponent,
     VirtualScrollPageComponent,
-    TrackByPageComponent
+    TrackByPageComponent,
+    ResolverPageComponent
   ],
   imports: [
     BrowserModule,

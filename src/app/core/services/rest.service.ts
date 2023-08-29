@@ -31,4 +31,12 @@ export class RestService {
   getLargeObjectList(count: number): Observable<{id: number, value: number}[]> {
     return this.http.get<{id: number, value: number}[]>(`http://localhost:3000/largeObjectList?count=${count}`);
   }
+
+  getCountries(): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:3000/countries`);
+  }
+
+  getNames(): Observable<string[]> {
+    return this.http.get<string[]>(`http://localhost:3000/names`);
+  }
 }
