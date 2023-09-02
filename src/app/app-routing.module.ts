@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {authGuard} from "./core/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'ngrx-effects',
     loadChildren: () => import('./ngrx-effects/ngrx-effects.module').then(m => m.NgrxEffectsModule)
+  },
+  {
+    path: 'secret',
+    loadChildren: () => import('./secret/secret.module').then(m => m.SecretModule),
+    canMatch: [authGuard]
   },
   {
     path: '**',
