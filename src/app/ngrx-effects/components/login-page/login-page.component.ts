@@ -31,7 +31,7 @@ export class LoginPageComponent implements OnDestroy {
     });
     this.loggedInSubscription = this.store.select(selectLoginState).subscribe(loginState => {
       if (loginState.loggedIn) {
-        this.router.navigateByUrl('/tasks');
+        this.router.navigateByUrl('/material/tasks');
       }
       if (loginState.errorMessage !== null) {
         this.showLoginErrorMessage(loginState.errorMessage);

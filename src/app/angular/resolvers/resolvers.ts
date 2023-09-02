@@ -1,6 +1,6 @@
 import {ResolveFn} from "@angular/router";
 import {inject} from "@angular/core";
-import {RestService} from "./services/rest.service";
+import {RestService} from "../../core/services/rest.service";
 
 export const countriesResolver: ResolveFn<string[]> = () => {
   return inject(RestService).getCountries();

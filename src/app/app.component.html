@@ -21,36 +21,36 @@
 </mat-menu>
 
 <mat-menu #ngrx="matMenu">
-  <button routerLink="/ngrx/counter" mat-menu-item>
+  <button routerLink="/ngrx-basics/counter" mat-menu-item>
     Counter
   </button>
-  <button routerLink="/ngrx/book-list" mat-menu-item>
+  <button routerLink="/ngrx-basics/book-list" mat-menu-item>
     Book-list
   </button>
 </mat-menu>
 
 <mat-menu #material="matMenu">
-  <button *ngIf="!(loggedIn$ | async) else tasks" routerLink="/login" mat-menu-item>
+  <button *ngIf="!(loggedIn$ | async) else tasks" routerLink="/ngrx-effects/login" mat-menu-item>
     Tasks - Login to see what's in
   </button>
   <ng-template #tasks>
-    <button routerLink="/tasks" mat-menu-item>
+    <button routerLink="/material/tasks" mat-menu-item>
       Tasks
     </button>
   </ng-template>
-  <button routerLink="/accordion" mat-menu-item>
+  <button routerLink="/material/accordion" mat-menu-item>
     Accordion
   </button>
-  <button routerLink="/virtual-scroll" mat-menu-item>
+  <button routerLink="/material/virtual-scroll" mat-menu-item>
     VirtualScroll
   </button>
 </mat-menu>
 
 <mat-menu #angular="matMenu">
-  <button routerLink="/track-by" mat-menu-item>
+  <button routerLink="/angular/track-by" mat-menu-item>
     trackBy
   </button>
-  <button routerLink="/resolver" mat-menu-item>
+  <button routerLink="/angular/resolver" mat-menu-item>
     Resolver
   </button>
 </mat-menu>

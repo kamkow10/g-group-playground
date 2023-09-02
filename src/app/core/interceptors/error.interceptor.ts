@@ -3,7 +3,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/com
 import {catchError, Observable, throwError} from 'rxjs';
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {LoginActions} from "../state/login.actions";
+import {LoginActions} from "../../ngrx-effects/state/login.actions";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {

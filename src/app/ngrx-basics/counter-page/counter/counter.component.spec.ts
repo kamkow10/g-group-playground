@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CounterComponent } from './counter.component';
+import {CounterComponent} from './counter.component';
 import {StoreModule} from "@ngrx/store";
 import {counterReducer} from "../state/counter.reducer";
 

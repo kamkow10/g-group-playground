@@ -1,7 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
 import {MatSnackBarRef} from "@angular/material/snack-bar";
 import {Store} from "@ngrx/store";
-import {selectLoginState} from "../../state/login.selectors";
+import {selectLoginState} from "../../../ngrx-effects/state/login.selectors";
 import {take} from "rxjs";
 
 @Component({
@@ -11,7 +11,7 @@ import {take} from "rxjs";
 })
 export class EndOfSessionMessageComponent implements OnDestroy {
   public secondsToLogout!: number;
-  private expiredTokenTimer!: number;
+  private expiredTokenTimer: any;
   private loginState$;
 
   constructor(public snackBarRef: MatSnackBarRef<EndOfSessionMessageComponent>,

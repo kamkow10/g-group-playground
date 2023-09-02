@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BookListPageComponent } from './book-list-page.component';
+import {BookListPageComponent} from './book-list-page.component';
 import {StoreModule} from "@ngrx/store";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {BookListComponent} from "./book-list/book-list.component";

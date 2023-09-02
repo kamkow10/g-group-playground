@@ -1,55 +1,26 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {CounterPageComponent} from "./ngrx/counter-page/counter-page.component";
-import {BookListPageComponent} from "./ngrx/book-list-page/book-list-page.component";
-import {LoginPageComponent} from "./ngrx-effects/components/login-page/login-page.component";
-import {TasksPageComponent} from "./material/components/tasks-page/tasks-page.component";
-import {AccordionPageComponent} from "./material/components/accordion-page/accordion-page.component";
-import {VirtualScrollPageComponent} from "./material/components/virtual-scroll-page/virtual-scroll-page.component";
-import {TrackByPageComponent} from "./angular/components/track-by-page/track-by-page.component";
-import {ResolverPageComponent} from "./angular/components/resolver-page/resolver-page.component";
-import {countriesResolver, namesResolver} from "./core/resolvers";
 
 const routes: Routes = [
   {
-    path: 'ngrx/counter',
-    component: CounterPageComponent
+    path: 'angular',
+    loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)
   },
   {
-    path: 'ngrx/book-list',
-    component: BookListPageComponent
+    path: 'material',
+    loadChildren: () => import('./material/material.module').then(m => m.MaterialModule)
   },
   {
-    path: 'login',
-    component: LoginPageComponent
+    path: 'ngrx-basics',
+    loadChildren: () => import('./ngrx-basics/ngrx-basics.module').then(m => m.NgrxBasicsModule)
   },
   {
-    path: 'tasks',
-    component: TasksPageComponent
-  },
-  {
-    path: 'accordion',
-    component: AccordionPageComponent
-  },
-  {
-    path: 'virtual-scroll',
-    component: VirtualScrollPageComponent
-  },
-  {
-    path: 'track-by',
-    component: TrackByPageComponent
-  },
-  {
-    path: 'resolver',
-    component: ResolverPageComponent,
-    resolve: {
-      countries: countriesResolver,
-      names: namesResolver
-    }
+    path: 'ngrx-effects',
+    loadChildren: () => import('./ngrx-effects/ngrx-effects.module').then(m => m.NgrxEffectsModule)
   },
   {
     path: '**',
-    redirectTo: 'ngrx/counter'
+    redirectTo: 'ngrx-basics/counter'
   },
 ];
 

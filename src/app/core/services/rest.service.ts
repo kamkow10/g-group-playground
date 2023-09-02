@@ -3,9 +3,10 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {SessionData} from "../interfaces/session-data";
 import {Tasks} from "../interfaces/tasks";
+import {CoreModule} from "../core.module";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CoreModule
 })
 export class RestService {
 

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Store} from "@ngrx/store";
-import {selectLoginState} from "../state/login.selectors";
+import {selectLoginState} from "../../ngrx-effects/state/login.selectors";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

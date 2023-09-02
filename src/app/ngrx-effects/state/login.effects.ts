@@ -5,7 +5,9 @@ import {catchError, debounceTime, exhaustMap, map, of, switchMap, tap, timer} fr
 import {LoginActions} from "./login.actions";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {EndOfSessionMessageComponent} from "../components/end-of-session-message/end-of-session-message.component";
+import {
+  EndOfSessionMessageComponent
+} from "../../shared/components/end-of-session-message/end-of-session-message.component";
 
 @Injectable()
 export class LoginEffects {
@@ -62,7 +64,7 @@ export class LoginEffects {
   logout$ = createEffect(() =>
     this.actions$.pipe(
       ofType(LoginActions.logout),
-      tap(() => this.router.navigateByUrl('/login'))
+      tap(() => this.router.navigateByUrl('/ngrx-effects/login'))
     ), {dispatch: false}
   );
 
