@@ -29,6 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('./standalone/routes')
   },
   {
+    path: 'typescript-generic',
+    loadComponent: () => import('./typescript-generic/typescript-generic.component').then(m => m.TypescriptGenericComponent)
+  },
+  {
     path: '**',
     redirectTo: 'ngrx-basics/counter'
   },

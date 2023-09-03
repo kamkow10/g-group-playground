@@ -1,0 +1,18 @@
+<div class="page">
+  <div class="page__container">
+    <h1>Typescript generic</h1>
+    <p>Watch results in console log!</p>
+
+    <h2>Cats Owner</h2>
+    <p>Cats Count: {{catsOwner.ownedAnimals.length}}</p>
+    <button mat-stroked-button (click)="addCat()">Add cat</button>
+    <button mat-stroked-button (click)="catsOwner.askAnimalsToSpeak()">Ask cats to speak</button>
+    <button mat-stroked-button (click)="catsOwner.getAnimalsStamina()">Check cats' stamina</button>
+
+    <h2>Dogs Owner</h2>
+    <p>Dogs Count: {{dogsOwner.ownedAnimals.length}}</p>
+    <button mat-stroked-button (click)="addDog()">Add dog</button>
+    <button mat-stroked-button (click)="dogsOwner.askAnimalsToSpeak()">Ask dogs to speak</button>
+    <button mat-stroked-button (click)="dogsOwner.getAnimalsStamina()">Check dogs' stamina</button>
+  </div>
+</div>
