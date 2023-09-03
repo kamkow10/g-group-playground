@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+
+  a.active {
+    background-color: #9ada9a;
+  }
+}

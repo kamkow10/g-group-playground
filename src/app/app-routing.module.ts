@@ -25,6 +25,10 @@ const routes: Routes = [
     canMatch: [authGuard]
   },
   {
+    path: 'standalone',
+    loadChildren: () => import('./standalone/routes')
+  },
+  {
     path: '**',
     redirectTo: 'ngrx-basics/counter'
   },
