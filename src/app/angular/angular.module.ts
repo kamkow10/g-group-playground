@@ -5,19 +5,22 @@ import {AngularRoutingModule} from './angular-routing.module';
 import {TrackByPageComponent} from "./components/track-by-page/track-by-page.component";
 import {ResolverPageComponent} from "./components/resolver-page/resolver-page.component";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsComparisonComponent } from './components/forms-comparison/forms-comparison.component';
 
 
 @NgModule({
   declarations: [
     TrackByPageComponent,
-    ResolverPageComponent
+    ResolverPageComponent,
+    FormsComparisonComponent
   ],
   imports: [
     CommonModule,
     AngularRoutingModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AngularModule { }
