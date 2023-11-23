@@ -7,6 +7,7 @@ import {ResolverPageComponent} from "./components/resolver-page/resolver-page.co
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormsComparisonComponent } from './components/forms-comparison/forms-comparison.component';
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -15,12 +16,13 @@ import { FormsComparisonComponent } from './components/forms-comparison/forms-co
     ResolverPageComponent,
     FormsComparisonComponent
   ],
-  imports: [
-    CommonModule,
-    AngularRoutingModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        AngularRoutingModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule
+    ]
 })
 export class AngularModule { }

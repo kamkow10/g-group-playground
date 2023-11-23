@@ -1,13 +1,106 @@
 <div class="page">
-  <div class="page__container">
-    <h1>Forms Comparition</h1>
+  <div class="page__container container">
+    <h1>Forms Comparison</h1>
 
     <h2>Reactive Form</h2>
     <div>
       <button type="button" (click)="updateName()">My name is Tommy</button>
     </div>
-    <input type="text" [formControl]="name">
-    <p>Input value: {{ name.value }}</p>
+    <h2>Classic form</h2>
+    <form [formGroup]="classicForm" (ngSubmit)="classicSubmit()">
+      <div class="row">
 
+        <div class="col">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="text" formControlName="age">
+          </mat-form-field>
+        </div>
+
+        <div class="col" formGroupName="address">
+          <mat-form-field>
+            <mat-label>Country</mat-label>
+            <input matInput type="text" formControlName="country">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput type="text" formControlName="city">
+          </mat-form-field>
+        </div>
+        <button mat-raised-button>Submit</button>
+      </div>
+    </form>
+
+    <h2>Form builder form</h2>
+    <form [formGroup]="formBuilderForm" (ngSubmit)="formBuilderSubmit()">
+      <div class="row">
+
+        <h3>Character</h3>
+        <div class="col">
+          <mat-form-field>
+            <mat-label>HP</mat-label>
+            <input matInput type="number" formControlName="hp">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Mana</mat-label>
+            <input matInput type="number" formControlName="mana">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Level</mat-label>
+            <input matInput type="number" formControlName="level">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Profession</mat-label>
+            <input matInput type="text" formControlName="profession">
+          </mat-form-field>
+        </div>
+
+        <h3>Dragon</h3>
+        <div class="col" formGroupName="dragon">
+          <mat-form-field>
+            <mat-label>HP</mat-label>
+            <input matInput type="number" formControlName="hp">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Color</mat-label>
+            <input matInput type="text" formControlName="color">
+          </mat-form-field>
+        </div>
+
+        <h3>Equipment</h3>
+        <div class="col">
+          <button type="button" mat-raised-button (click)="addItem()">
+            Add item
+          </button>
+        </div>
+        <div class="col" formArrayName="equipment">
+          <mat-form-field *ngFor="let item of equipment.controls; index as i">
+            <mat-label>Item {{ i }}</mat-label>
+            <input matInput type="text" [formControlName]="i">
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <button mat-raised-button>Submit</button>
+        </div>
+        <div class="col mt-1">
+          <strong>Form status: {{ formBuilderForm.status }}</strong>
+        </div>
+      </div>
+    </form>
+    <h2>Result</h2>
+    <p>{{ result | json }}</p>
   </div>
 </div>
