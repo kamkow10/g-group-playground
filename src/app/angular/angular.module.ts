@@ -8,13 +8,16 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormsComparisonComponent } from './components/forms-comparison/forms-comparison.component';
 import {MatButtonModule} from "@angular/material/button";
+import { ChangePasswordFormComponent } from './components/forms-comparison/change-password-form/change-password-form.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
   declarations: [
     TrackByPageComponent,
     ResolverPageComponent,
-    FormsComparisonComponent
+    FormsComparisonComponent,
+    ChangePasswordFormComponent
   ],
     imports: [
         CommonModule,
@@ -22,7 +25,8 @@ import {MatButtonModule} from "@angular/material/button";
         MatInputModule,
         FormsModule,
         ReactiveFormsModule,
-        MatButtonModule
+        MatButtonModule,
+        MatProgressSpinnerModule
     ]
 })
 export class AngularModule { }
