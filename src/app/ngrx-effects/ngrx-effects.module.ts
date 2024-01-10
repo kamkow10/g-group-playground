@@ -19,7 +19,8 @@ import {MatButtonModule} from "@angular/material/button";
     ReactiveFormsModule,
     MatInputModule,
     SharedModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ]
 })
 export class NgrxEffectsModule { }

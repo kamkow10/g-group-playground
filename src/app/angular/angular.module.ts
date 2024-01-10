@@ -6,10 +6,13 @@ import {TrackByPageComponent} from "./components/track-by-page/track-by-page.com
 import {ResolverPageComponent} from "./components/resolver-page/resolver-page.component";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FormsComparisonComponent } from './components/forms-comparison/forms-comparison.component';
+import {FormsComparisonComponent} from './components/forms-comparison/forms-comparison.component';
 import {MatButtonModule} from "@angular/material/button";
-import { ChangePasswordFormComponent } from './components/forms-comparison/change-password-form/change-password-form.component';
+import {
+  ChangePasswordFormComponent
+} from './components/forms-comparison/change-password-form/change-password-form.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -19,14 +22,16 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     FormsComparisonComponent,
     ChangePasswordFormComponent
   ],
-    imports: [
-        CommonModule,
-        AngularRoutingModule,
-        MatInputModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatProgressSpinnerModule
-    ]
+  imports: [
+    CommonModule,
+    AngularRoutingModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    SharedModule
+  ]
 })
-export class AngularModule { }
+export class AngularModule {
+}

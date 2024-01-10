@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {SecretRoutingModule} from './secret-routing.module';
 import {SecretComponent} from './secret.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {SecretComponent} from './secret.component';
   ],
   imports: [
     CommonModule,
-    SecretRoutingModule
+    SecretRoutingModule,
+    SharedModule
   ]
 })
 export class SecretModule { }

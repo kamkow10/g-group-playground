@@ -8,6 +8,7 @@ import {CounterComponent} from "./counter-page/counter/counter.component";
 import {BookListPageComponent} from "./book-list-page/book-list-page.component";
 import {BookCollectionComponent} from "./book-list-page/book-collection/book-collection.component";
 import {MatButtonModule} from "@angular/material/button";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatButtonModule} from "@angular/material/button";
   imports: [
     CommonModule,
     NgrxBasicsRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ]
 })
 export class NgrxBasicsModule {

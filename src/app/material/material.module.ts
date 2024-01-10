@@ -12,6 +12,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {CdkFixedSizeVirtualScroll, CdkVirtualForOf} from "@angular/cdk/scrolling";
 import {MatButtonModule} from "@angular/material/button";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatButtonModule,
     CdkDrag,
     CdkDrag,
-    CdkVirtualForOf
+    CdkVirtualForOf,
+    SharedModule
   ]
 })
 export class MaterialModule { }

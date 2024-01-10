@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {authGuard} from "./core/guards/auth.guard";
+import {PreloadSelectedModules} from "./core/preloading/preload-selected-modules";
 
 const routes: Routes = [
   {
@@ -33,13 +34,20 @@ const routes: Routes = [
     loadComponent: () => import('./typescript-generic/typescript-generic.component').then(m => m.TypescriptGenericComponent)
   },
   {
+    path: 'preload',
+    loadChildren: () => import('./preload/preload.module').then(m => m.PreloadModule),
+    data: { preload: true }
+  },
+  {
     path: '**',
     redirectTo: 'ngrx-basics/counter'
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadSelectedModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

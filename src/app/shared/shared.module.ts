@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {EndOfSessionMessageComponent} from "./components/end-of-session-message/end-of-session-message.component";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatButtonModule} from "@angular/material/button";
+import {QuicklinkModule} from "ngx-quicklink";
 
 
 @NgModule({
@@ -10,14 +11,16 @@ import {MatButtonModule} from "@angular/material/button";
     EndOfSessionMessageComponent
   ],
   exports: [
-    EndOfSessionMessageComponent
+    EndOfSessionMessageComponent,
+    QuicklinkModule,
   ],
   imports: [
     CommonModule,
     MatSnackBarModule,
     MatSnackBarModule,
     MatSnackBarModule,
-    MatButtonModule
+    MatButtonModule,
+    QuicklinkModule,
   ]
 })
 export class SharedModule { }

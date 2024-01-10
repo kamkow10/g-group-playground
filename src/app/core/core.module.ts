@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import {ErrorInterceptor} from "./interceptors/error.interceptor";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {ErrorInterceptor} from "./interceptors/error.interceptor";
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class CoreModule { }
